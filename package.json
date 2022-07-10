@@ -32,5 +32,13 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3",
     "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.7",
+    "@mui/icons-material": "^5.4.2",
+    "@mui/styled-engine-sc": "^5.8.0",
+    "styled-components": "^5.3.5"
   }
 }

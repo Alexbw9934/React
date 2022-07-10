@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
 
 const App = () => {
     const [count, createCount] = useState(0);
@@ -9,7 +10,7 @@ const App = () => {
             <h2>Click tracking</h2>
             <div>
                 <p>You clicked {count}</p>
-                <button onClick={() => createCount(count + 1)}>Click me</button>
+                <Button variant="contained" onClick={() => createCount(count + 1)}>Click me</Button>
             </div>
         </div>
     )
