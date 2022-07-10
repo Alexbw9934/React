@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import "./style.css";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-const App = () => {
-    const [count, createCount] = useState(0);
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
+function App() {
     return (
-        <div>
-            <h1 className="headerColor">Hello there</h1>
-            <h2>Click tracking</h2>
-            <div>
-                <p>You clicked {count}</p>
-                <Button variant="contained" onClick={() => createCount(count + 1)}>Click me</Button>
+        <>
+            <Header />
+            <div className='w-full !mx-auto rounded-md xl:!w-3/4'>
+                <Outlet />
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 
