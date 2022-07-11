@@ -2,9 +2,9 @@ import React from 'react';
 
 function Home() {
     return (
-        <div>
-            <h1 className="text-sky-400/100">AAA</h1>
-        </div>
+        <h1 className="text-3xl font-bold underline text-red-900">
+            aaa
+        </h1>
     )
 }
 

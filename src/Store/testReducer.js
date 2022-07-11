@@ -12,4 +12,6 @@ export const testReducer = createSlice({
     }
 })
 
+const { setAAA } = testReducer.actions;
+
 export default testReducer.reducer;

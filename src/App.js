@@ -7,7 +7,7 @@ import Footer from './Components/Footer';
 function App() {
     return (
         <>
-            <div className='w-full !mx-auto rounded-md xl:!w-3/4 bg-slate-400'>
+            <div className='w-full !mx-auto rounded-md xl:!w-3/4'>
                 <Outlet />
             </div>
             <Footer />

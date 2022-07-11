@@ -23,8 +23,12 @@ module.exports = {
         }
       },
       {
-        test: /\.?css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        test:/\.css$/,
+        use:[
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+        ]
       },
       {
         test: /\.?svg$/,
@@ -39,6 +43,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html")
-    }),
+    })
   ],
 };
