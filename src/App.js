@@ -7,7 +7,8 @@ import Footer from './Components/Footer';
 function App() {
     return (
         <>
-            <div className='w-full !mx-auto rounded-md xl:!w-3/4'>
+            <Header />
+            <div className='w-full !mx-auto rounded-md xl:!w-3/4 md:!w-3/4'>
                 <Outlet />
             </div>
             <Footer />

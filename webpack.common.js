@@ -10,6 +10,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
+  devServer: {
+    port: 3000,
+    historyApiFallback: true,
+  },
+  performance : {
+    hints : false
+  },  
   module: {
     rules: [
       {
