@@ -11,6 +11,7 @@ import {
     InputBase,
     Menu,
     MenuItem,
+    Drawer,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -59,6 +60,44 @@ const CustomAppBar = styled(AppBar, {
         })
     })
 }));
+
+const CustomDrawer = styled(Drawer, {
+    shouldForwardProp: prop => prop !== 'open',
+})(({ theme, open }) => ({
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: noWrap,
+    boxSizing: 'border-box',
+    ...(open && {
+        ...openedMixin(theme),
+        '& .MuiDrawer-paper': openedMixin(theme)
+    }),
+    ...(!open && {
+        ...closedMixin(theme),
+        '& .MuiDrawer-paper': closedMixin(theme)
+    })
+}));
+
+const openedMixin = theme => ({
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen
+    }),
+    overflowX: 'hidden'
+});
+
+const closedMixin = theme => ({
+    transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen
+    }),
+    overflowX: 'hidden',
+    width: `calc(${theme.spacing(7)} + 1px)`,
+    [theme.breakpoints.up('sm')]: {
+        width: `calc(${theme.spacing(8)} + 1px)`
+    }
+});
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -113,6 +152,10 @@ function Header() {
         event.preventDefault();
         event.stopPropagation();
         sidebarToggle(true);
+    }
+
+    const closeSideBar = () => {
+        sidebarToggle(false);
     }
 
     const handleAuth = event => {
@@ -227,12 +270,21 @@ function Header() {
                             >
                                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                                 <MenuItem onClick={handleClose}>My account</MenuItem>
-                                <MenuItem onClick={handleLogout}>Log out</MenuItem>
+                                <MenuItem onClick={handleLogout}>Sign out</MenuItem>
                             </Menu>
                         </div>
                     )}
                 </Toolbar>
             </CustomAppBar>
+            <ClickAwayListener onClickAway={closeSideBar}>
+                <CustomDrawer
+                    variant="permanent"
+                    open={open}
+                    className={open ? 'visible' : 'invisible xl:visible'}
+                >
+
+                </CustomDrawer>
+            </ClickAwayListener>
         </>
     );
 }
